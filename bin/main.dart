@@ -31,15 +31,15 @@ cliente(cli) {
   var mantenimiento = findVal(cli, "@estadomant");
   var sector = findVal(cli, '@sector');
 
-  print("Id del objeto: $idobjeto");
-  print("Latitud: $lat");
-  print("Longitud: $lon");
-  print("Nombre: $nombre");
-  print("Presion: $presion");
-  print("Auditoria: $auditoria");
-  print("Mantenimiento: $mantenimiento");
-  print("Sector: $sector");
-  print("");
+  //print("Id del objeto: $idobjeto");
+  //print("Latitud: $lat");
+  //print("Longitud: $lon");
+  //print("Nombre: $nombre");
+  //print("Presion: $presion");
+  //print("Auditoria: $auditoria");
+  //print("Mantenimiento: $mantenimiento");
+  //print("Sector: $sector");
+  //print("");
 }
 
 findVal(registro, name) {
