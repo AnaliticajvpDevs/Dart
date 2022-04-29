@@ -1,18 +1,14 @@
-var datos = {
-  "ac": "Acometida",
-  "b": "EEA",
-  "de": "Nodo",
-  "e": "Valvulas Cierre",
-  "erclo": "Erclo",
-  "h": "Hidrante",
-  "p": "Pozo",
-  "pl": "Planta",
-  "t": "Tanque",
-  "va": "Valvula Aire"
-};
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-main() {
-  if(datos['ac'] == "Acometida"){
-    print('correcto');
-  }  
+main() async {
+  Uri url = Uri.parse(
+      'https://dessrvjvp.exwaiti.com/regen?network=54.3&lat=-35.5&lon=-57.9&radius=250000000&time=0&login=jvpnet1%40gmail.com&passwd=JVPjvp123');
+  final res = await http.get(url);
+  var obj = res.body;
+  var reg = [];
+  var list = jsonDecode(obj);
+
+  //print(obj);
+  print(list[0]['o'].length);
 }

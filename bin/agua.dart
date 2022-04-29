@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 //import 'package:dart_mssql/dart_mssql.dart';
 import 'dart:convert';
 
-void main() async {
+main() async {
   Uri url = Uri.parse(
       'https://xyt-a1.herokuapp.com/oread?id=53.7&serverAlias=srvjvp');
   final res = await http.get(url);
@@ -25,6 +25,7 @@ void main() async {
       }
     }
   }
+
   List acometida = [];
   List estacion = [];
   List nodo = [];
@@ -68,87 +69,111 @@ void main() async {
       valAire.add(item);
     }
   }
-  for (var item in estacion) {
-    cliente(item) {
-    var idobjeto = item['o'];
+  for (var item in valAire) {
+    var idObjeto = item['o'];
     var lat = item['v'][0].split('|')[0];
     var lon = item['v'][0].split('|')[1];
-    var ahora = item("now");
+    var nombre = findVal(item, '@oName');
+    var sector = findVal(item, '@sector');
+    var estadoAud = findVal(item, '@estadoaud');
+    var estadoMant = findVal(item, '@estadomant');
+    var diametroV = findVal(item, '@diametroV');
+    var comentario = findVal(item, '@com');
+
+    //print(idObjeto);
+    //print(lat);
+    //print(lon);
+    //print(nombre);
+    //print(sector);
+    //print(estadoAud);
+    //print(estadoMant);
+    //print(diametroV);
+    //print(comentario);
+    //print("-----------");
+  }
+
+  for (var item in estacion) {
+    var idObjeto = item['o'];
+    var lat = item['v'][0].split('|')[0];
+    var lon = item['v'][0].split('|')[1];
+    //var ahora = item("now");
     var nombre = findVal(item, '@oName');
     var presion = findVal(item, '@presion');
     var auditoria = findVal(item, "@estadoaud");
     var mantenimiento = findVal(item, "@estadomant");
     var sector = findVal(item, '@sector');
     var comentario = findVal(item, "@com");
-    //var tiempo      = findVal(item,"$iTime")
     var marca = findVal(item, "@marca");
     var pmax = findVal(item, "@presMax");
     var pmin = findVal(item, "@presMin");
     var pot = findVal(item, "@pot");
     var fechaIns = findVal(item, "@fechai");
-    //var fecha = time.strftime("%d/%m/%y");
-    //var hora = time.strftime("%I:%M:%S");
-  }
-  }
-   for (var item in nodo) {
-    cliente(item) {
-    var idobjeto = item['o'];
-    var lat = item['v'][0].split('|')[0];
-    var lon = item['v'][0].split('|')[1];
-    var ahora = item("now");
-    var nombre = findVal(item, '@oName');
-    var contratista = findVal(item, '@contratista');
-    var auditoria = findVal(item, "@estadoaud");
-    var mantenimiento = findVal(item, "@estadomant");
-    var sector = findVal(item, '@sector');
-    var comentario = findVal(item, "@com");
     //var tiempo      = findVal(item,"$iTime")
-    var diametro = findVal(item, "@diametroH");  
     //var fecha = time.strftime("%d/%m/%y");
     //var hora = time.strftime("%I:%M:%S");
+    
   }
-  }
-   for (var item in valCierre) {
-    cliente(item) {
-    var idobjeto = item['o'];
+
+  for (var item in nodo) {
+    var idObjeto = item['o'];
     var lat = item['v'][0].split('|')[0];
     var lon = item['v'][0].split('|')[1];
-    var ahora = item("now");
+    //var ahora = item("now");
+    //var nombre = findVal(item, '@oName');
+    //var contratista = findVal(item, '@contratista');
+    //var auditoria = findVal(item, "@estadoaud");
+    //var mantenimiento = findVal(item, "@estadomant");
+    //var sector = findVal(item, '@sector');
+    //var comentario = findVal(item, "@com");
+    //var tiempo      = findVal(item,"$iTime")
+    //var diametro = findVal(item, "@diametroH");
+    //var fecha = time.strftime("%d/%m/%y");
+    //var hora = time.strftime("%I:%M:%S");
+
+  
+
+  }
+
+  for (var item in valCierre) {
+    var idObjeto = item['o'];
+    var lat = item['v'][0].split('|')[0];
+    var lon = item['v'][0].split('|')[1];
+    //var ahora = item("now");
+    //var nombre = findVal(item, '@oName');
+    //var tipo = findVal(item, '@tipo');
+    //var auditoria = findVal(item, "@estadoaud");
+    //var mantenimiento = findVal(item, "@estadomant");
+    //var sector = findVal(item, '@sector');
+    //var oType = findVal(item, "@oType");
+    //var tiempo  = findVal(item,"$iTime")
+    //var fecha = time.strftime("%d/%m/%y");
+    //var hora = time.strftime("%I:%M:%S");
+
+    
+  }
+
+  for (var item in erclo) {
+    var idObjeto = item['o'];
+    var lat = item['v'][0].split('|')[0];
+    var lon = item['v'][0].split('|')[1];
+    //var ahora = item("now");
     var nombre = findVal(item, '@oName');
     var tipo = findVal(item, '@tipo');
     var auditoria = findVal(item, "@estadoaud");
     var mantenimiento = findVal(item, "@estadomant");
     var sector = findVal(item, '@sector');
     var oType = findVal(item, "@oType");
-    //var tiempo      = findVal(item,"$iTime")
-    //var fecha = time.strftime("%d/%m/%y");
-    //var hora = time.strftime("%I:%M:%S");
-  }
-  }
-   for (var item in erclo) {
-    cliente(item) {
-    var idobjeto = item['o'];
-    var lat = item['v'][0].split('|')[0];
-    var lon = item['v'][0].split('|')[1];
-    var ahora = item("now");
-    var nombre = findVal(item, '@oName');
-    var tipo = findVal(item, '@tipo');
-    var auditoria = findVal(item, "@estadoaud");
-    var mantenimiento = findVal(item, "@estadomant");
-    var sector = findVal(item, '@sector');
-    var oType = findVal(item, "@oType");
     var comentario = findVal(item, "@com");
-    //var tiempo      = findVal(item,"$iTime")
-    //var fecha = time.strftime("%d/%m/%y");
-    //var hora = time.strftime("%I:%M:%S");
+      //var tiempo      = findVal(item,"$iTime")
+      //var fecha = time.strftime("%d/%m/%y");
+      //var hora = time.strftime("%I:%M:%S");      
   }
-  }
+
   for (var item in hidrante) {
-    cliente(item) {
-    var idobjeto = item['o'];
+    var idObjeto = item['o'];
     var lat = item['v'][0].split('|')[0];
     var lon = item['v'][0].split('|')[1];
-    var ahora = item("now");
+    //var ahora = item("now");
     var nombre = findVal(item, '@oName');
     var tipo = findVal(item, '@tipo');
     var auditoria = findVal(item, "@estadoaud");
@@ -156,9 +181,14 @@ void main() async {
     var sector = findVal(item, '@sector');
     var comentario = findVal(item, "@com");
     var diametro = findVal(item, "@diametroH");
-    //var tiempo      = findVal(item,"$iTime")
-    //var fecha = time.strftime("%d/%m/%y");
-    //var hora = time.strftime("%I:%M:%S");
-  }
-  }
+      //var tiempo      = findVal(item,"$iTime")
+      //var fecha = time.strftime("%d/%m/%y");
+      //var hora = time.strftime("%I:%M:%S");
+    print(idObjeto);
+    print(lat);
+    print(lon);
+    print(nombre);
+    print('-------');
+    }
+
 }
