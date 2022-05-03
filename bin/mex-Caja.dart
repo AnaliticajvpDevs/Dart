@@ -35,28 +35,37 @@ main() async {
   List coList = [];
 
   for (var i = 0; i < reg.length; i++) {
-    var idObjeto = reg[i]['o'];
-    var lat = reg[i]['v'][0].toString().split("|")[0];
-    var lon = reg[i]['v'][0].toString().split("|")[1];
-    valList.add(reg[i]['val']);
-    coList.add(reg[i]['co']);
+    var idObjeto = reg[15]['o'];
+    var lat = reg[15]['v'][0].toString().split("|")[0];
+    var lon = reg[15]['v'][0].toString().split("|")[1];
+
+    valList.add(reg[15]['val']);
+    coList.add(reg[15]['co']);
 
     var nombre = findVal(valList, '@nombre');
     var name = findVal(valList, '@oName');
     var estado = findVal(valList, '@estado');
-
+    var subregion = findVal(valList, '@subregion');
+    var region = findVal(valList, '@region');
+    var oType = findVal(valList, '@oType');
     var n1 = findCo(coList, 'n1');
     var co = findCo(coList, 'co');
     var val = findCo(coList, 'val').toString().split('|')[1];
+/*
     print(idObjeto);
     print(lat);
     print(lon);
     print(nombre);
     print(name);
     print(estado);
+    print(subregion);
+    print(region);
+    print(oType);
     print(n1);
     print(co);
     print(val);
-    print('---------------------');
+    print('---------------------');*/
   }
+  //print(reg[15]['co'][0]);
+  //print(findCo(coList, 'val'));
 }
